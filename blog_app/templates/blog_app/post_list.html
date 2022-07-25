@@ -1,0 +1,15 @@
+{% extends "base.html" %} 
+{% block content %}
+<h1>Posts</h1>
+{% if user.is_staff %}<a href={% url 'post-create' %}>Create post</a>{% endif %}
+  {% if post_list %}
+    {% for post in post_list %}
+    <div>
+      <div><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
+      <div>{{ post.body | safe }}</div>
+    </div>
+    {% endfor %}
+  {% else %}
+  <div>There are no posts.</div>
+  {% endif %} 
+{% endblock %}
