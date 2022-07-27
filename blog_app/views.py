@@ -13,11 +13,11 @@ class PostDetailView(generic.DetailView):
 
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = '__all__'
+    fields = ['title','body']
 
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = '__all__'
+    fields = ['title','body']
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
